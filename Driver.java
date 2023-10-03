@@ -6,7 +6,7 @@ public class Driver {
 	
 		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome to QuickFlix!\n What would you like to do today?\n");
-		System.out.println("(Type: Add, Rate, Edit, Delete, or Exit\n");
+		System.out.println("(Type: Add, Rate, Edit, Delete, or Exit)\n");
 		
 		if (input.nextLine().equals("Add")) {
 			//call add method
