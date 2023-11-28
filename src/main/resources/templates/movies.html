@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link th:href="@{/movies-stylesheet.css}" rel="stylesheet">
     <title>Movie Rating System</title>
 </head>
-<body>
+<body style="background-color:powderblue;">
     <h1>QuickFlix</h1>
-    <h2>My Movies</h2>
-    <div>
-        <ul>
-            <li th:each="movie : ${movies}">
-                <span th:text="${movie.title}">Movie Title</span>,
-                <span th:text="${movie.genre}">Genre</span>,
-                <span th:text="${movie.releaseDate}">Release Date</span>,
-                <span th:text="${movie.rating}">Rating</span>
-                <a th:href="@{/movies/edit/{id}(id=${movie.id})}">Edit</a>
-                <a th:href="@{/movies/delete/{id}(id=${movie.id})}" onclick="return confirm('Are you sure?')">Delete</a>
-            </li>
-        </ul>
-    </div>
     <h3>Add a Movie</h3>
     <div>
         <form th:action="@{/movies/add}" th:object="${newMovie}" method="post">
@@ -28,5 +16,27 @@
             <button type="submit">Add</button>
         </form>
     </div>
+    <h2>My Movies</h2>
+    <div class="container">
+        <table>
+            <tr class="head">
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+                <th>Rating</th>
+                <th> </th>
+                <th> </th>
+            </tr>
+            <tr style=background-color:aliceblue th:each="movie : ${movies}">
+                <td th:text="${movie.title}"></td>,
+                <td th:text="${movie.genre}"></td>,
+                <td th:text="${movie.releaseDate}"></td>,
+                <td th:text="${movie.rating}"></td>
+                <td><a th:href="@{/movies/edit/{id}(id=${movie.id})}">Edit</a></td>
+                <td><a th:href="@{/movies/delete/{id}(id=${movie.id})}" onclick="return confirm('Are you sure?')">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+
 </body>
 </html>
