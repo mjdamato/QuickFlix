@@ -4,8 +4,7 @@ import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 public class Movie {
     private static final AtomicInteger count = new AtomicInteger(0);
@@ -14,6 +13,8 @@ public class Movie {
     private String title;
     private String genre;
     private int rating;
+    private String cast;
+    private String streamingService;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
@@ -22,12 +23,14 @@ public class Movie {
         this.id = count.incrementAndGet();
     }
 
-    public Movie(Integer id, String title, String genre, LocalDate releaseDate, int rating) {
+    public Movie(Integer id, String title, String genre, LocalDate releaseDate, int rating, String cast, String streamingService) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.releaseDate = releaseDate;
         this.rating = rating;
+        this.cast = cast;
+        this.streamingService = streamingService;
     }
 
     public Integer getId() {
@@ -54,14 +57,6 @@ public class Movie {
         this.genre = genre;
     }
 
-    public LocalDate getReleaseDate() {
-        return this.releaseDate;
-    }
-
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
     public int getRating() {
         return this.rating;
     }
@@ -70,15 +65,29 @@ public class Movie {
         this.rating = rating;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", title='" + getTitle() + "'" +
-            ", genre='" + getGenre() + "'" +
-            ", releaseDate='" + getReleaseDate() + "'" +
-            ", rating='" + getRating() + "'" +
-            "}";
+    public String getCast() {
+        return this.cast;
     }
+
+    public void setCast(String cast) {
+        this.cast = cast;
+    }
+
+    public String getStreamingService() {
+        return this.streamingService;
+    }
+
+    public void setStreamingService(String streamingService) {
+        this.streamingService = streamingService;
+    }
+
+    public LocalDate getReleaseDate() {
+        return this.releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
 }
 
