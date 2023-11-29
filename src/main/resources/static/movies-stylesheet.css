@@ -3,7 +3,7 @@ body {
   background-image: url('img/quickback.png');
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+  color: rgb(0, 0, 0);
 }   
 .container {
     position: relative;
